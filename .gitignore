@@ -1,5 +1,6 @@
 #my stuff
 .env
+.gcp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
