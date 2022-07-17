@@ -1,0 +1,23 @@
+services:
+  pgdatabase:
+    image: postgres:14
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=ny_taxi
+    volumes:
+      - "/Users/cikriibr/projects/learning/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql_my/ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
+    ports:
+      - "5432:5432"
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com 
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "8080:80"
+    volumes:
+      - "pgadmin_conn_data:/var/lib/pgadmin:rw"
+
+volumes:
+  pgadmin_conn_data:
